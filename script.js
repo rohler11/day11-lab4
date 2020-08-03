@@ -99,26 +99,23 @@ let onSwitch = document.querySelector(".on");
 onSwitch.addEventListener("click", () => {
   lightBulb.style.backgroundColor = "lightGrey";
 });
+
 let offSwitch = document.querySelector(".off");
 offSwitch.addEventListener("click", () => {
   lightBulb.style.backgroundColor = "grey";
 });
-// const toggleSwitch = () => {
-//   lightBulb.classList.toggle(".on");
-//   lightBulb.classList.toggle(".off");
-// };
 
-let toggle = document.querySelector(".off");
+let toggle = document.querySelector(".toggle");
 toggle.addEventListener("click", () => {
-  lightBulb.classList.toggle(".on", ".off");
+  if (lightBulb.classList.toggle(".on")) {
+    lightBulb.style.backgroundColor = "grey";
+  } else {
+    lightBulb.style.backgroundColor = "lightGrey";
+  }
 });
 
-// let toggle = document.querySelector(".toggle");
-// toggle.addEventListener("click", toggleSwitch);
-
-// let lightBulbFunct = document.querySelector(".lightBulbFunct");
-
-// const bulbFunct = () => {
-//   lightBulbFunct.classList.toggle("pressed");
-// };
-// console.dir(lightBulbFunct);
+let endSwitch = document.querySelector(".end");
+endSwitch.addEventListener("click", () => {
+  lightBulb.classList.remove(".bulb", ".on", ".off");
+  endSwitch.getElementById(".butt").disabled = true;
+});
